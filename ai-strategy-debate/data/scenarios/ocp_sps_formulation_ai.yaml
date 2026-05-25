@@ -1,0 +1,30 @@
+scenario_id: ocp_sps_form_ai_01
+title: "OCP SPS — Generative AI Co-Pilot for Specialty Fertilizer Formulation"
+question: >
+  Should OCP SPS deploy a generative AI co-pilot that assists agronomists in designing
+  custom NPK and micronutrient blends for specific soil-crop-climate combinations,
+  with the system able to propose formulations autonomously when no agronomist is
+  available, targeting smallholder farmers across Sub-Saharan Africa and Southern Europe?
+constraints:
+  jurisdiction: [EU, GLOBAL]
+  sensitive_data: true
+  risk_level: high
+  budget_tier: high
+  reversibility_required: true
+context: >
+  OCP SPS current process: agronomists manually design blends using soil lab results,
+  crop data, and internal knowledge base. Process takes 3-7 days per recommendation.
+  Scaling to 2 million smallholder farmers by 2027 is impossible with current headcount.
+  AI co-pilot would cut recommendation time to under 4 hours.
+  Risk: incorrect fertilizer advice causes crop failure, farmer debt, food insecurity.
+  Risk: autonomous mode (no agronomist) may violate EU AI Act Article 22 (automated decisions
+  with significant effect on natural persons — crop failure qualifies).
+  OCP SPS data: 15 years of formulation records, 400,000 soil profiles, proprietary.
+  No DPIA completed. DPO not consulted on autonomous mode.
+success_criteria:
+  - "PRO and CON both argue with labelled evidence"
+  - "Autonomous mode vs co-pilot mode distinction made explicit"
+  - "EU AI Act obligations surfaced (Art. 22, Art. 9, Art. 13)"
+  - "Agronomist deskilling risk addressed"
+  - "Recommendation is actionable, not vague"
+on_demand_agents: [mlops_strategist, ux_researcher, knowledge_engineer, cognitive_scientist]
