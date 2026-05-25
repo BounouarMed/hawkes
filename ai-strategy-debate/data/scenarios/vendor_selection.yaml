@@ -1,0 +1,21 @@
+scenario_id: vendor_selection_01
+title: "AI Vendor Selection — Internal Copilot"
+question: >
+  Should we adopt Vendor A (closed-source cloud API, lower cost, faster time-to-market)
+  or Vendor B (open-source self-hosted, higher initial cost, full data control)
+  for our internal AI copilot serving 500 employees handling HR, legal, and financial data?
+constraints:
+  jurisdiction: [EU, FR]
+  sensitive_data: true
+  risk_level: medium
+  budget_tier: medium
+  reversibility_required: true
+context: >
+  Data residency in France is preferred. Moderate MLOps capacity.
+  Decision must be reversible within 18 months. No cross-border data transfers without legal basis.
+success_criteria:
+  - "Both positions argued with labelled evidence"
+  - "Data residency and reversibility addressed"
+  - "Blocking issues identified"
+  - "No PII in output"
+on_demand_agents: [mlops_strategist, knowledge_engineer]

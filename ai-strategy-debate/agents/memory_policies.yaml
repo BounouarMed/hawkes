@@ -1,0 +1,10 @@
+memory_layers:
+  M4:
+    read: [scenario, orchestration_plan, all_turns, all_critiques, all_verdicts, ledger, cost]
+    write: [orchestration_plan, final_result, report]
+  M3:
+    read: [scenario, orchestration_plan, relevant_turns, relevant_critiques]
+    write: [own_turn, own_critique, own_verdict]
+  M2:
+    read: [scenario, orchestration_plan, assigned_turns]
+    write: [own_turn, own_verdict]

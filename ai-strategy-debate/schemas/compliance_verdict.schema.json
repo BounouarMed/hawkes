@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["gate_result","legal_basis_present","gdpr_concern","ai_act_concern","flags"],
+  "properties": {
+    "gate_result": {"type":"string","enum":["pass","pass_with_warnings","block"]},
+    "legal_basis_present": {"type":"boolean"},
+    "gdpr_concern": {"type":"boolean"},
+    "ai_act_concern": {"type":"boolean"},
+    "ai_act_articles": {"type":"array","items":{"type":"string"}},
+    "transfer_risk": {"type":"boolean"},
+    "flags": {"type":"array","items":{"type":"string"}},
+    "required_actions": {"type":"array","items":{"type":"string"}},
+    "recommendation": {"type":"string"}
+  }
+}

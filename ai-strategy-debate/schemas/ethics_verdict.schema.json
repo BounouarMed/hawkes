@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["gate_result","issues_found","pii_detected","manipulation_risk","prohibited_practice"],
+  "properties": {
+    "gate_result": {"type":"string","enum":["pass","pass_with_warnings","block"]},
+    "issues_found": {"type":"array","items":{"type":"string"}},
+    "pii_detected": {"type":"boolean"},
+    "manipulation_risk": {"type":"string","enum":["none","low","medium","high"]},
+    "prohibited_practice": {"type":"boolean"},
+    "ai_act_article_5_concern": {"type":"boolean"},
+    "compliance_flags": {"type":"array","items":{"type":"string"}},
+    "recommendation": {"type":"string"}
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["scenario_id","title","question","constraints"],
+  "additionalProperties": false,
+  "properties": {
+    "scenario_id": {"type":"string"},
+    "title": {"type":"string"},
+    "question": {"type":"string","minLength":20},
+    "context": {"type":"string"},
+    "constraints": {
+      "type":"object",
+      "required":["jurisdiction","sensitive_data","risk_level"],
+      "properties": {
+        "jurisdiction": {"type":"array","items":{"type":"string","enum":["EU","FR","US","UK","GLOBAL"]}},
+        "sensitive_data": {"type":"boolean"},
+        "risk_level": {"type":"string","enum":["low","medium","high","critical"]},
+        "budget_tier": {"type":"string","enum":["low","medium","high"]},
+        "reversibility_required": {"type":"boolean"}
+      }
+    },
+    "success_criteria": {"type":"array","items":{"type":"string"}},
+    "on_demand_agents": {"type":"array","items":{"type":"string"}}
+  }
+}

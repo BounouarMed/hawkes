@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["scenario_id","phase","round","agent","position","claims","steelman_of_opposing","weaknesses","uncertainties","on_demand_requests","confidence"],
+  "additionalProperties": false,
+  "properties": {
+    "scenario_id": {"type":"string"},
+    "phase": {"type":"string"},
+    "round": {"type":"integer","minimum":1},
+    "agent": {"type":"string"},
+    "position": {"type":"string","enum":["pro","con","neutral"]},
+    "claims": {
+      "type":"array","minItems":1,"maxItems":6,
+      "items": {
+        "type":"object",
+        "required":["claim_id","text","evidence_status"],
+        "properties": {
+          "claim_id": {"type":"string"},
+          "text": {"type":"string"},
+          "evidence_status": {"type":"string","enum":["supported","plausible","speculative","unverified","contested"]},
+          "source_hint": {"type":"string"},
+          "rebutted_by": {"type":"string"}
+        }
+      }
+    },
+    "steelman_of_opposing": {"type":"string","minLength":20},
+    "weaknesses": {"type":"array","minItems":1,"maxItems":4,"items":{"type":"string"}},
+    "uncertainties": {"type":"array","items":{"type":"string"}},
+    "on_demand_requests": {
+      "type":"array",
+      "items": {
+        "type":"object",
+        "required":["agent_key","reason"],
+        "properties": {
+          "agent_key": {"type":"string"},
+          "reason": {"type":"string"}
+        }
+      }
+    },
+    "compliance_concern": {"type":"boolean"},
+    "security_concern": {"type":"boolean"},
+    "confidence": {"type":"number","minimum":0,"maximum":1}
+  }
+}

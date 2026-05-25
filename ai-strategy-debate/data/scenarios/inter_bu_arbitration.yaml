@@ -1,0 +1,22 @@
+scenario_id: inter_bu_arb_01
+title: "Inter-BU AI Budget Arbitration — Legal vs Marketing"
+question: >
+  Legal requires a contract analysis AI (Sonnet-class, on-premise, high accuracy).
+  Marketing requires a campaign generation AI (Opus-class, cloud, creative output).
+  Budget allows only one this quarter. Which should be prioritised?
+constraints:
+  jurisdiction: [EU, FR]
+  sensitive_data: true
+  risk_level: high
+  budget_tier: medium
+  reversibility_required: false
+context: >
+  Legal processes confidential client contracts. Marketing handles public brand content.
+  Total AI budget this quarter: €80,000. Both BUs submitted formal requests.
+  CTO must decide by end of quarter.
+success_criteria:
+  - "Both use cases fairly represented"
+  - "Risk-adjusted ROI compared"
+  - "Compliance implications of each choice addressed"
+  - "Decision criteria made explicit and auditable"
+on_demand_agents: [business_analyst, mlops_strategist, change_manager]

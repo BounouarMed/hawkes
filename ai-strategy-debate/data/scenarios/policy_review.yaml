@@ -1,0 +1,15 @@
+scenario_id: policy_review_01
+title: "Chatbot Transparency — Proactive vs On-Request AI Disclosure"
+question: >
+  Should our public-facing customer service chatbot proactively disclose it is AI
+  on every interaction, or only when the user explicitly asks?
+constraints:
+  jurisdiction: [EU]
+  sensitive_data: false
+  risk_level: low
+  budget_tier: low
+success_criteria:
+  - "AI Act Article 50 obligation flagged"
+  - "UX and trust implications weighed"
+  - "Recommendation is dated and actionable"
+on_demand_agents: [ux_researcher, computational_linguist]

@@ -1,0 +1,121 @@
+agents:
+  orchestrator:
+    model: claude-opus-4-7
+    authority: A4
+    memory: M4
+    system_prompt: prompts/system/orchestrator.md
+    tools: [Read, Write, Edit, Bash, Task, TodoWrite, TodoRead]
+    always_active: true
+  strategy_manager:
+    model: claude-sonnet-4-6
+    authority: A3
+    memory: M3
+    system_prompt: prompts/system/strategy_manager.md
+    tools: [Read, Write]
+    always_active: true
+  product_strategist:
+    model: claude-sonnet-4-6
+    authority: A3
+    memory: M3
+    system_prompt: prompts/system/product_strategist.md
+    tools: [Read, Write]
+    always_active: true
+  research_liaison:
+    model: claude-sonnet-4-6
+    authority: A2
+    memory: M3
+    system_prompt: prompts/system/research_liaison.md
+    tools: [Read, Write]
+    always_active: true
+  debate_architect:
+    model: claude-sonnet-4-6
+    authority: A3
+    memory: M3
+    system_prompt: prompts/system/debate_architect.md
+    tools: [Read, Write]
+    always_active: true
+  evaluation_lead:
+    model: claude-sonnet-4-6
+    authority: A3
+    memory: M3
+    system_prompt: prompts/system/evaluation_lead.md
+    tools: [Read, Write]
+    always_active: true
+  ethics_lead:
+    model: claude-sonnet-4-6
+    authority: A3
+    memory: M3
+    system_prompt: prompts/system/ethics_lead.md
+    tools: [Read, Write]
+    always_active: true
+  compliance_manager:
+    model: claude-sonnet-4-6
+    authority: A3
+    memory: M3
+    system_prompt: prompts/system/compliance_manager.md
+    tools: [Read, Write]
+    always_active: true
+  security_specialist:
+    model: claude-haiku-4-5-20251001
+    authority: A3
+    memory: M3
+    system_prompt: prompts/system/security_specialist.md
+    tools: [Read, Write]
+    always_active: true
+  # On-demand
+  mlops_strategist:
+    model: claude-sonnet-4-6
+    authority: A2
+    memory: M2
+    system_prompt: prompts/system/on_demand/mlops_strategist.md
+    always_active: false
+    trigger: "security_concern OR ops_constraints"
+  business_analyst:
+    model: claude-sonnet-4-6
+    authority: A2
+    memory: M2
+    system_prompt: prompts/system/on_demand/business_analyst.md
+    always_active: false
+    trigger: "kpi_framing OR decision_matrix OR critique_verdict=revise"
+  ux_researcher:
+    model: claude-sonnet-4-6
+    authority: A2
+    memory: M2
+    system_prompt: prompts/system/on_demand/ux_researcher.md
+    always_active: false
+    trigger: "user_facing OR trust_concern"
+  knowledge_engineer:
+    model: claude-sonnet-4-6
+    authority: A2
+    memory: M3
+    system_prompt: prompts/system/on_demand/knowledge_engineer.md
+    always_active: false
+    trigger: "evidence_status=unverified AND source_hint empty"
+  cognitive_scientist:
+    model: claude-sonnet-4-6
+    authority: A2
+    memory: M2
+    system_prompt: prompts/system/on_demand/cognitive_scientist.md
+    always_active: false
+    trigger: "manipulation_risk in [medium,high] OR risk_level in [high,critical]"
+  computational_linguist:
+    model: claude-haiku-4-5-20251001
+    authority: A2
+    memory: M2
+    system_prompt: prompts/system/on_demand/computational_linguist.md
+    always_active: false
+    trigger: "argument_charity < 0.6"
+  prompt_engineer:
+    model: claude-haiku-4-5-20251001
+    authority: A2
+    memory: M2
+    system_prompt: prompts/system/on_demand/prompt_engineer.md
+    always_active: false
+    trigger: "schema_validation_failure OR format_issue"
+  change_manager:
+    model: claude-sonnet-4-6
+    authority: A2
+    memory: M2
+    system_prompt: prompts/system/on_demand/change_manager.md
+    always_active: false
+    trigger: "adoption in success_criteria AND verdict=recommend"

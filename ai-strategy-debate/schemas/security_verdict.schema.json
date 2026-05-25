@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["gate_result","threats_found","injection_detected","exfiltration_risk"],
+  "properties": {
+    "gate_result": {"type":"string","enum":["pass","pass_with_warnings","block"]},
+    "threats_found": {"type":"array","items":{"type":"string"}},
+    "injection_detected": {"type":"boolean"},
+    "exfiltration_risk": {"type":"string","enum":["none","low","medium","high"]},
+    "adversarial_patterns": {"type":"array","items":{"type":"string"}},
+    "recommendation": {"type":"string"}
+  }
+}

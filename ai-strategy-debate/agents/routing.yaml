@@ -1,0 +1,29 @@
+rules:
+  - id: route_mlops
+    condition: "security_concern=true in any turn"
+    spawn: mlops_strategist
+    phase: after_round_1
+  - id: route_ux
+    condition: "'user' or 'customer' in question"
+    spawn: ux_researcher
+    phase: after_round_1
+  - id: route_ba
+    condition: "critique verdict=revise AND 'kpi' or 'roi' in critique"
+    spawn: business_analyst
+    phase: after_critique
+  - id: route_ke
+    condition: "any claim evidence_status=unverified AND source_hint empty"
+    spawn: knowledge_engineer
+    phase: after_round_1
+  - id: route_cog
+    condition: "risk_level in [high,critical]"
+    spawn: cognitive_scientist
+    phase: after_ethics_gate
+  - id: route_ling
+    condition: "argument_charity < 0.6"
+    spawn: computational_linguist
+    phase: after_evaluation
+  - id: route_change
+    condition: "'adoption' in success_criteria AND verdict=recommend"
+    spawn: change_manager
+    phase: after_adjudication

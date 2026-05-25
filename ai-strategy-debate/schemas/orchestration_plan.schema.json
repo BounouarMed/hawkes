@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["scenario_id","active_agents","phases","debate_positions","routing_rules","max_rounds"],
+  "properties": {
+    "scenario_id": {"type":"string"},
+    "active_agents": {"type":"array","items":{"type":"string"}},
+    "on_demand_triggers": {"type":"array","items":{"type":"string"}},
+    "phases": {
+      "type":"array",
+      "items": {
+        "type":"object",
+        "required":["phase_id","phase_type","agents","parallel"],
+        "properties": {
+          "phase_id": {"type":"string"},
+          "phase_type": {"type":"string"},
+          "agents": {"type":"array","items":{"type":"string"}},
+          "parallel": {"type":"boolean"},
+          "depends_on": {"type":"array","items":{"type":"string"}}
+        }
+      }
+    },
+    "debate_positions": {
+      "type":"object",
+      "properties": {
+        "pro": {"type":"array","items":{"type":"string"}},
+        "con": {"type":"array","items":{"type":"string"}}
+      }
+    },
+    "routing_rules": {"type":"array","items":{"type":"string"}},
+    "max_rounds": {"type":"integer","minimum":1,"maximum":4}
+  }
+}
